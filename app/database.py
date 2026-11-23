@@ -1,7 +1,13 @@
+import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "postgresql://cofinga:cofinga123@cofinga-db:5432/cofinga"
+DATABASE_URL = (
+    f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+    f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT')}"
+    f"/{os.getenv('DB_NAME')}"
+)
 
 engine = create_engine(DATABASE_URL)
 
