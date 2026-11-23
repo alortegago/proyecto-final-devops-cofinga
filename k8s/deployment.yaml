@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cofinga
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cofinga
+
+  template:
+    metadata:
+      labels:
+        app: cofinga
+
+    spec:
+      containers:
+      - name: cofinga
+
+        image: ghcr.io/alortegago/proyecto-final-devops-cofinga:latest
+
+        ports:
+        - containerPort: 8000
+
+        envFrom:
+        - configMapRef:
+            name: cofinga-config
+
+        - secretRef:
+            name: cofinga-secret
