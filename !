@@ -1,0 +1,61 @@
+python3 -m venv venv                                # Crear un entorno virtual aislado para las dependencias del proyecto.
+
+source venv/bin/activate                            # Activar el entorno virtual Python.
+
+python3 --version                                   # Comprobar la versión de Python instalada.
+
+pip3 --version                                      # Comprobar la versión de pip instalada.
+
+pip install fastapi uvicorn pydantic                # Instalar las librerías necesarias para la API.
+
+pip freeze > requirements.txt                       # Exportar dependencias instaladas a requirements.txt.
+
+cat requirements.txt                                # Mostrar el contenido del fichero de dependencias.
+
+cd /opt/cofinga                                     # Acceder al directorio principal del proyecto.
+
+vi app/main.py                                      # Editar el código fuente de la API.
+
+cat app/main.py                                     # Mostrar el contenido completo del fichero.
+
+cat -n app/main.py                                  # Mostrar el fichero numerando las líneas.
+
+python -m py_compile app/main.py                    # Verificar que el código Python no contiene errores de sintaxis.
+
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload   # Iniciar la API FastAPI con recarga automática.
+
+ip a                                                # Mostrar las interfaces y direcciones IP del sistema.
+
+ss -lntp | grep 8000                                # Verificar que la aplicación escucha en el puerto 8000.
+
+docker --version                                    # Comprobar que Docker está instalado correctamente.
+
+docker build -t cofinga:1.0 .                       # Construir la imagen Docker de la aplicación.
+
+docker images                                       # Listar las imágenes Docker disponibles.
+
+docker run -d --name cofinga -p 8000:8000 cofinga:1.0   # Ejecutar la aplicación en un contenedor Docker.
+
+docker ps                                           # Mostrar los contenedores en ejecución.
+
+docker ps -a                                        # Mostrar todos los contenedores, activos y detenidos.
+
+docker logs cofinga                                 # Consultar los logs del contenedor Cofinga.
+
+docker stop cofinga                                 # Detener el contenedor Cofinga.
+
+docker rm cofinga                                   # Eliminar el contenedor Cofinga.
+
+docker rmi cofinga:1.0                              # Eliminar la imagen Docker creada.
+
+git init                                            # Inicializar un repositorio Git local.
+
+git add .                                           # Añadir todos los cambios al área de preparación.
+
+git commit -m "Versión inicial de Cofinga"          # Crear un punto de control del proyecto.
+
+git status                                          # Comprobar el estado actual del repositorio.
+
+mkdir -p ~/memoria/capturas                         # Crear la estructura de directorios para la documentación.
+
+tar czvf cofinga-backup.tar.gz /opt/cofinga         # Generar una copia de seguridad comprimida del proyecto.
