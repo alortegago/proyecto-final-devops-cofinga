@@ -18,7 +18,7 @@ spec:
       containers:
       - name: cofinga
 
-        image: ghcr.io/alortegago/proyecto-final-devops-cofinga:latest
+        image: 355221938262.dkr.ecr.eu-north-1.amazonaws.com/cofinga:latest
 
         ports:
         - containerPort: 8000
