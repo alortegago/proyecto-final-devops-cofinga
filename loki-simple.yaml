@@ -1,0 +1,23 @@
+loki:
+  auth_enabled: false
+
+deploymentMode: SingleBinary
+
+singleBinary:
+  replicas: 1
+
+read:
+  replicas: 0
+
+write:
+  replicas: 0
+
+backend:
+  replicas: 0
+
+minio:
+  enabled: false
+
+test:
+  enabled: false
+

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cofinga-green
+  namespace: default
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: cofinga
+      version: green
+
+  template:
+    metadata:
+      labels:
+        app: cofinga
+        version: green
+
+    spec:
+      containers:
+      - name: cofinga
+
+        image: 355221938262.dkr.ecr.eu-north-1.amazonaws.com/cofinga:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 8000
+
+        envFrom:
+        - configMapRef:
+            name: cofinga-config
+        - secretRef:
+            name: cofinga-secret
